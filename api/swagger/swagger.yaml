@@ -88,6 +88,14 @@ paths:
           required: true
           type: integer
           format: int64
+        - name: expand
+          in: query
+          description: expand parameter
+          type: array
+          items:
+            type: string
+            minItems: 0
+            uniqueItems: true
       responses:
         "200":
           description: Return a Discussion Resource
@@ -480,6 +488,13 @@ definitions:
       updatedBy:
         type: string
         description: The handle fo the user
+      messages:
+        type: array
+        description: Get the first level messages for this disucssion
+        items:
+          type: string
+          minItems: 0
+          uniqueItems: true
   MessageResource:
     required:
       - id
